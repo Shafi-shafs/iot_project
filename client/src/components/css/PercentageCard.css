@@ -1,0 +1,75 @@
+/* PercentageCard.css */
+.percentage-card {
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px 4px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1.34s ease-in-out;
+}
+
+.circle {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.liquid {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform-origin: bottom center;
+    transition: height 1.7s ease-in-out;
+}
+
+.liquid.green {
+    background-color: limegreen;
+}
+
+.liquid.red {
+    background-color: red;
+}
+
+.percentage-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    animation: popUp 0.5s ease-in-out;
+    z-index: 1;
+}
+
+h3 {
+    color: aliceblue;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes popUp {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

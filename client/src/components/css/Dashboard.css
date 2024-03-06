@@ -1,0 +1,76 @@
+tr {
+    transition: transform 0.3s ease-out;
+
+}
+
+tr:hover {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    transform: scale(1.02);
+}
+
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: var(--bs-modal-padding);
+
+    background-color: transparent !important;
+}
+
+.container {
+    background-color: transparent !important;
+}
+
+.table {
+    --bs-table-bg: transparent;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.sImg {
+    width: 50px !important;
+    height: 50px !important;
+}
+
+.custom-modal {
+    background-color: transparent;
+    margin-top: 100px !important;
+}
+
+.modal-content {
+    background-color: rgba(4, 70, 108, 0.283);
+}
+
+.modal-body {
+
+    background: rgba(255, 255, 255, .4) !important;
+    background-color: transparent !important;
+}
+
+h3, h4 {
+    color: white;
+    
+}
+
+.uImage{
+    border-radius: 10px;
+    /* box-shadow: rgba(4, 70, 108, 0.283) 0px 5px 15px; */
+    box-shadow: rgba(4, 70, 108, 0.283) 0px 14px 28px, rgba(4, 70, 108, 0.283) 0px 10px 10px;
+    border:  rgba(4, 70, 108, 0.283) 0px 14px 28px, rgba(4, 70, 108, 0.283) 0px 10px 10px;
+}
+
+.uImage:active{
+    border: 5px solid red;
+}
+
+h2 {
+    color: #0c4c7d;
+    text-align: center;
+    text-shadow: 0 0 2px #0c4c7d, 0 0 4px #0c4c7d, 0 0 6px #0c4c7d8f;
+    
+    
+}
+
+h2 span{
+    color: blue;
+    text-align: center;
+}
