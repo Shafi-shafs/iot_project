@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Table, Button, Modal } from "react-bootstrap"; // Import Modal from react-bootstrap
+import { Table, Button, Modal } from "react-bootstrap"; 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Dashboard.css";
 import PercentageCard from "./PercentageCard.js";
@@ -14,8 +14,8 @@ function Dashboard() {
   const [error2, setError2] = useState(null);
   const [alertShown, setAlertShown] = useState({});
   const [countdown, setCountdown] = useState({});
-  const [showModal, setShowModal] = useState(false); // State to control modal visibility
-  const [selectedImage, setSelectedImage] = useState(null); // State to store the selected image
+  const [showModal, setShowModal] = useState(false); 
+  const [selectedImage, setSelectedImage] = useState(null); 
 
   useEffect(() => {
     fetchData1();
@@ -29,7 +29,7 @@ function Dashboard() {
 
   const fetchData1 = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/table1");
+      const response = await axios.get("https://iot-back-8ktl.onrender.com/api/table1");
       setData1(response.data);
       setLoading1(false);
     } catch (error) {
@@ -40,7 +40,7 @@ function Dashboard() {
 
   const fetchData2 = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/attendance");
+      const response = await axios.get("https://iot-back-8ktl.onrender.com/api/attendance");
       setData2(response.data);
       setLoading2(false);
     } catch (error) {
@@ -145,7 +145,7 @@ function Dashboard() {
         const newData2 = [...data2, { name, time: currentTime }];
         setData2(newData2);
       }
-      await axios.post("http://localhost:5000/api/attendance", {
+      await axios.post("https://iot-back-8ktl.onrender.com/api/attendance", {
         name,
         time: currentTime,
       });
@@ -158,13 +158,13 @@ function Dashboard() {
     const statusIcon = getStatusIcon(name).icon;
     const currentTime = new Date().toISOString();
     if (statusIcon === "Absent") {
-      await axios.post("http://localhost:5000/api/table3", {
+      await axios.post("https://iot-back-8ktl.onrender.com/api/table3", {
         name,
         roll,
         time: currentTime,
       });
     } else if (statusIcon === "✔️") {
-      await axios.post("http://localhost:5000/api/table4", {
+      await axios.post("https://iot-back-8ktl.onrender.com/api/table4", {
         name,
         roll,
         time: currentTime,
@@ -174,8 +174,8 @@ function Dashboard() {
 
   const deleteDuplicateEntry = async (name) => {
     try {
-      await axios.post("http://localhost:5000/api/deleteDuplicates", { name });
-      await axios.delete("http://localhost:5000/api/table4", {
+      await axios.post("https://iot-back-8ktl.onrender.com/api/deleteDuplicates", { name });
+      await axios.delete("https://iot-back-8ktl.onrender.com/api/table4", {
         params: { name },
       });
       if (typeof fetchData2 === "function") {
@@ -217,7 +217,7 @@ function Dashboard() {
         {(loading1 || loading2) && <p>Loading...</p>}
         {(error1 || error2) && <p>{error1 || error2}</p>}
         <div className="table">
-          <Table bordered>
+          <Table responsive bordered>
             <thead>
               <tr>
                 <th>Picture</th>
@@ -236,7 +236,7 @@ function Dashboard() {
                 <tr key={entry.name}>
                   <td className="sImg">
                     <img
-                      src={`http://localhost:5000/${entry.image}`}
+                      src={`https://iot-back-8ktl.onrender.com/${entry.image}`}
                       alt="User"
                       className="uImage"
                       style={{ width: "70px", height: "90px" }}
@@ -274,7 +274,7 @@ function Dashboard() {
               <div className="card bg-transparent">
                 {selectedImage && (
                   <img
-                    src={`http://localhost:5000/${selectedImage}`}
+                    src={`https://iot-back-8ktl.onrender.com/${selectedImage}`}
                     alt="Selected User"
                     className="uImage"
                     style={{

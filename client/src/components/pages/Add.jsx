@@ -30,7 +30,7 @@ function AddDataForm() {
       formData.append("year", year1);
       formData.append("section", section1);
 
-      await axios.post("http://localhost:5000/api/table1", formData, {
+      await axios.post("https://iot-back-8ktl.onrender.com/api/table1", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -55,7 +55,7 @@ function AddDataForm() {
     event.preventDefault();
     setIsLoading2(true);
     try {
-      await axios.post("http://localhost:5000/api/attendance", { name: name2 });
+      await axios.post("https://iot-back-8ktl.onrender.com/api/attendance", { name: name2 });
 
       setName2("");
       setErrorMessage2("");

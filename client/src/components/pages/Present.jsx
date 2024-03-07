@@ -13,7 +13,7 @@ function Table3Data() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/table3");
+      const response = await axios.get("https://iot-back-8ktl.onrender.com/api/table3");
       setData(response.data);
       setLoading(false);
     } catch (error) {
@@ -24,7 +24,7 @@ function Table3Data() {
 
   const deleteEntry = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/table3/${id}`);
+      await axios.delete(`https://iot-back-8ktl.onrender.com/api/table3/${id}`);
       fetchData(); // Refresh data after deletion
     } catch (error) {
       console.error("Error deleting entry:", error);

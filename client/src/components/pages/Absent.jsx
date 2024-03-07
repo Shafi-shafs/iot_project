@@ -13,7 +13,7 @@ function Table4Data() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/table4");
+      const response = await axios.get("https://iot-back-8ktl.onrender.com/api/table4");
       setData(response.data);
       setLoading(false);
     } catch (error) {
@@ -24,7 +24,7 @@ function Table4Data() {
 
   const deleteEntry = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/table4/${id}`);
+      await axios.delete(`https://iot-back-8ktl.onrender.com/api/table4/${id}`);
       fetchData(); // Refresh data after deletion
     } catch (error) {
       console.error("Error deleting entry:", error);
@@ -36,7 +36,7 @@ function Table4Data() {
       <h2>Absent Student Data</h2>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <Table striped bordered hover>
+      <Table striped bordered hover responsive>
         <thead>
           <tr>
             <th>Name</th>

@@ -11,11 +11,11 @@ const ProductList = () => {
 
   const fetchData = async () => {
     try {
-      const table1Response = await axios.get('http://localhost:5000/api/table1');
-      const table2Response = await axios.get('http://localhost:5000/api/attendance');
+      const table1Response = await axios.get('https://iot-back-8ktl.onrender.com/api/table1');
+      const table2Response = await axios.get('https://iot-back-8ktl.onrender.com/api/attendance');
       setTable1Data(table1Response.data.map(entry => ({
         ...entry,
-        imageUrl: `http://localhost:5000/${entry.image}` // Correct the concatenation
+        imageUrl: `https://iot-back-8ktl.onrender.com/${entry.image}` // Correct the concatenation
       })));
       setTable2Data(table2Response.data);
     } catch (error) {
@@ -26,7 +26,7 @@ const ProductList = () => {
 
   const deleteEntry = async (id, tableName) => {
     try {
-      await axios.delete(`http://localhost:5000/api/${tableName}/${id}`);
+      await axios.delete(`https://iot-back-8ktl.onrender.com/api/${tableName}/${id}`);
       // Refetch data after deletion
       fetchData();
     } catch (error) {
@@ -39,7 +39,7 @@ const ProductList = () => {
       <div className="row">
         <div className="col">
           <h2>Table 1</h2>
-          <table className="table">
+          <table responsive className="table">
             <thead>
               <tr>
                 <th>Name</th>
@@ -66,7 +66,7 @@ const ProductList = () => {
         </div>
         <div className="col">
           <h2>Table 2</h2>
-          <table className="table">
+          <table responsive className="table">
             <thead>
               <tr>
                 <th>Name</th>
